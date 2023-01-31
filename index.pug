@@ -1,0 +1,60 @@
+mixin section(title, sectionClass)
+    - customNumber++;
+    section(class=`news-${sectionClass}`)
+        h3= title
+        input(class="load-img" type="file" name=`${sectionClass}-img` id=`${sectionClass}-img`)
+        div(class=`custom-btn custom-btn-${customNumber} afore`)
+            img(class="current-img" src="" alt="")
+        pre
+            p(class=`${sectionClass}-limits`).
+                В формате JPG, JPEG, PNG весом
+                до 1 Мбайт
+mixin fields(title, sectionClass, id, placeholder, lettersLimit)
+    section(class=`news-${id}-section`)
+        label(class=`section-${id}` for=`news-${id}`)= title
+        .helper
+            span.letters-limit 0/#{lettersLimit}
+            if title == 'Заголовок'
+                input(class=`news-${sectionClass}` type="text" id=`news-${id}` name=`news-${id}` placeholder=`${placeholder}` maxlength=`${lettersLimit}`)
+            else if title == 'Короткое описание'
+                textarea(class=`news-${sectionClass}` id=`news-${id}` name=`news-${id}` placeholder=`${placeholder}` maxlength=`${lettersLimit}`)
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(content="landing page" name="description")
+        meta(content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport")
+        title Landing Page
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css")
+        link(rel="stylesheet" href="css/style.css")
+        script(src="js/jquery-3.6.1.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js")
+    body
+        - let mainClass = 'main-content'
+        - let customNumber = 0;
+        main(class=`${mainClass}`)
+            article(class=`${mainClass}__form-keeper`)
+                form(class=`${mainClass}__form` action="/" method="POST")
+                    .corrector
+                        +section('Изображение для превью новости', 'preview')
+                        +section('Основное изображение', 'main')
+                        +fields('Заголовок', 'input', 'header', 'Введите заголовок', 75)
+                        +fields('Короткое описание', 'input', 'short-description', 'Введите короткое описание', 100)
+                        section.main-text-section
+                            label(class="main-text-label" for="summernote")
+                                h3 Основной текст
+                            .helper
+                                - let summernoteLimit = 20000;
+                                span.letters-limit#summernote-limit 0/#{summernoteLimit}
+                                textarea(id="summernote" name="summernote-data" maxlength=`${summernoteLimit}`)
+                        section.toggle-section
+                            label(class="title-label" for="toggle")
+                                span Главная новость
+                                input(class="toggle-section__toggle" type="checkbox" id="toggle")
+                                label(class="toggle-section__toggle-label" for="toggle")
+                    section.buttons
+                        - btns = [['Сохранить', 'save-btn'], ['Превью', 'preview-btn'], ['Публиковать', 'public-btn']]
+                        each item, index in btns
+                            button(class="form-btn" id=`form-btn-${index + 1}` name=`${item[1]}`) #{item[0]}
+        script(src="js/script.js")
+        

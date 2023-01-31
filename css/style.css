@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Calibri, sans-serif;
+}
+
+html,
+body,
+.main-content {
+  width: 100%;
+  min-height: 100vh;
+}
+
+img[src=""] {
+  display: none;
+}
+
+::placeholder {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+:focus::placeholder {
+  color: transparent;
+}
+
+.main-content {
+  padding: 10px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+}
+.main-content__form-keeper {
+  width: 100%;
+  max-width: 725px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.main-content__form-keeper .main-content__form {
+  width: 100%;
+  height: 100%;
+}
+.main-content__form-keeper .main-content__form h3 {
+  padding-bottom: 15px;
+}
+.main-content__form-keeper .main-content__form pre {
+  margin-top: -10px;
+}
+.main-content__form-keeper .main-content__form .load-img {
+  display: none;
+}
+.main-content__form-keeper .main-content__form .custom-btn {
+  width: 130px;
+  height: 130px;
+  border-radius: 15px;
+  background-color: rgba(71, 171, 138, 0.1);
+  position: relative;
+  cursor: pointer;
+  color: #000;
+  overflow: hidden;
+}
+.main-content__form-keeper .main-content__form .custom-btn-2 {
+  width: 260px;
+}
+.main-content__form-keeper .main-content__form .custom-btn.error {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+.main-content__form-keeper .main-content__form .afore::before,
+.main-content__form-keeper .main-content__form .afore::after,
+.main-content__form-keeper .main-content__form .afore-error::before,
+.main-content__form-keeper .main-content__form .afore-error::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+  height: 2px;
+}
+.main-content__form-keeper .main-content__form .afore::after,
+.main-content__form-keeper .main-content__form .afore-error::after {
+  transform-origin: left;
+  transform: rotate(90deg) translateX(-50%);
+}
+.main-content__form-keeper .main-content__form .afore::before,
+.main-content__form-keeper .main-content__form .afore::after {
+  background-color: #47ab8a;
+}
+.main-content__form-keeper .main-content__form .afore-error::before,
+.main-content__form-keeper .main-content__form .afore-error::after {
+  background-color: #f00;
+}
+.main-content__form-keeper .main-content__form .section-header,
+.main-content__form-keeper .main-content__form .section-short-description {
+  display: block;
+  padding-left: 1px;
+  font-size: 14px;
+}
+.main-content__form-keeper .main-content__form .helper {
+  width: 100%;
+  position: relative;
+  margin: 7px 0 4px;
+}
+.main-content__form-keeper .main-content__form .letters-limit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 11px;
+  color: #ccc;
+}
+.main-content__form-keeper .main-content__form .news-input.empty-error {
+  border-color: red;
+}
+.main-content__form-keeper .main-content__form textarea.news-input {
+  padding: 10px 44px 10px 10px;
+  height: 65px;
+}
+.main-content__form-keeper .main-content__form .news-input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  font-size: 17px;
+  padding: 0 40px 0 10px;
+  background-color: transparent;
+  outline: none;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.main-content__form-keeper .main-content__form .current-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main-content__form-keeper .main-content__form .note-placeholder {
+  color: #ccc;
+  font-size: 17px;
+}
+.main-content__form-keeper .main-content__form .note-editor.note-airframe,
+.main-content__form-keeper .main-content__form .note-editor.note-frame {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 45px;
+}
+.main-content__form-keeper
+  .main-content__form
+  .main-text-section
+  > .helper
+  > .letters-limit {
+  bottom: 15px;
+}
+.main-content__form-keeper .main-content__form .main-text-label > h3 {
+  padding-bottom: 7px;
+}
+.main-content__form-keeper .main-content__form .toggle-section__toggle {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+.main-content__form-keeper .main-content__form .toggle-section__toggle-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 35px;
+  height: 20px;
+  background-color: #ddd;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+.main-content__form-keeper
+  .main-content__form
+  .toggle-section__toggle-label::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: ease 0.3s;
+}
+.main-content__form-keeper
+  .main-content__form
+  .toggle-section__toggle:checked
+  + .toggle-section__toggle-label {
+  background-color: #47ab8a;
+}
+.main-content__form-keeper
+  .main-content__form
+  .toggle-section__toggle:checked
+  + .toggle-section__toggle-label:after {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+.main-content__form-keeper
+  .main-content__form
+  .toggle-section__toggle-label:active:after {
+  width: 20px;
+}
+.main-content__form-keeper .main-content__form .title-label {
+  display: flex;
+}
+.main-content__form-keeper .main-content__form .title-label span {
+  order: 1;
+  margin-left: 16px;
+  font-weight: 900;
+}
+.main-content__form-keeper .main-content__form .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  padding: 10px 30px;
+  border-top: 2px solid #eee;
+}
+.main-content__form-keeper .main-content__form .buttons .form-btn {
+  width: 110px;
+  padding: 8px 6px;
+  outline: none;
+  border: none;
+  background-color: rgba(71, 171, 138, 0.1);
+  border-radius: 6px;
+  color: #47ab8a;
+  font-weight: 700;
+  cursor: pointer;
+}
+.main-content__form-keeper .main-content__form .buttons .form-btn:first-child {
+  margin-right: auto;
+}
+.main-content__form-keeper .main-content__form .buttons .form-btn:last-child {
+  background-color: #47ab8a;
+  color: #fff;
+  margin-left: 15px;
+}
+.news-main ~ section {
+  padding-bottom: 22px;
+}
+
+.corrector {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 30px 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.error-description {
+  color: red;
+}
+
+.note-editor.note-airframe .note-editing-area .note-editable,
+.note-editor.note-frame .note-editing-area .note-editable {
+  padding-bottom: 21px;
+}

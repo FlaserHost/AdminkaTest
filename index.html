@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="landing page" name="description" />
+    <meta
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+      name="viewport"
+    />
+    <title>Landing Page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  </head>
+  <body>
+    <main class="main-content">
+      <article class="main-content__form-keeper">
+        <form class="main-content__form" action="/" method="POST">
+          <div class="corrector">
+            <section class="news-preview">
+              <h3>Изображение для превью новости</h3>
+              <input
+                class="load-img"
+                type="file"
+                name="preview-img"
+                id="preview-img"
+              />
+              <div class="custom-btn custom-btn-1 afore">
+                <img class="current-img" src="" alt="" />
+              </div>
+              <pre>
+                <p class="preview-limits">В формате JPG, JPEG, PNG весом
+до 1 Мбайт
+                </p></pre>
+            </section>
+            <section class="news-main">
+              <h3>Основное изображение</h3>
+              <input
+                class="load-img"
+                type="file"
+                name="main-img"
+                id="main-img"
+              />
+              <div class="custom-btn custom-btn-2 afore">
+                <img class="current-img" src="" alt="" />
+              </div>
+              <pre>
+                <p class="main-limits">В формате JPG, JPEG, PNG весом
+до 1 Мбайт
+                </p></pre>
+            </section>
+            <section class="news-header-section">
+              <label class="section-header" for="news-header">Заголовок</label>
+              <div class="helper">
+                <span class="letters-limit">0/75</span>
+                <input
+                  class="news-input"
+                  type="text"
+                  id="news-header"
+                  name="news-header"
+                  placeholder="Введите заголовок"
+                  maxlength="75"
+                />
+              </div>
+            </section>
+            <section class="news-short-description-section">
+              <label
+                class="section-short-description"
+                for="news-short-description"
+                >Короткое описание</label
+              >
+              <div class="helper">
+                <span class="letters-limit">0/100</span>
+                <textarea
+                  class="news-input"
+                  id="news-short-description"
+                  name="news-short-description"
+                  placeholder="Введите короткое описание"
+                  maxlength="100"
+                ></textarea>
+              </div>
+            </section>
+            <section class="main-text-section">
+              <label class="main-text-label" for="summernote">
+                <h3>Основной текст</h3>
+              </label>
+              <div class="helper">
+                <span class="letters-limit" id="summernote-limit">0/20000</span>
+                <textarea
+                  id="summernote"
+                  name="summernote-data"
+                  maxlength="20000"
+                ></textarea>
+              </div>
+            </section>
+            <section class="toggle-section">
+              <label class="title-label" for="toggle"
+                ><span>Главная новость</span>
+                <input
+                  class="toggle-section__toggle"
+                  type="checkbox"
+                  id="toggle"
+                />
+                <label
+                  class="toggle-section__toggle-label"
+                  for="toggle"
+                ></label>
+              </label>
+            </section>
+          </div>
+          <section class="buttons">
+            <button class="form-btn" id="form-btn-1" name="save-btn">
+              Сохранить
+            </button>
+            <button class="form-btn" id="form-btn-2" name="preview-btn">
+              Превью
+            </button>
+            <button
+              class="form-btn"
+              id="form-btn-3"
+              name="public-btn"
+              type="submit"
+            >
+              Публиковать
+            </button>
+          </section>
+        </form>
+      </article>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>
